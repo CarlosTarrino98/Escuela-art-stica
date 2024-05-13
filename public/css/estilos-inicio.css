@@ -1,0 +1,139 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Esto asegura que el padding no aumente el tamaño de los elementos */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%; /* Esto hace que ocupen toda la altura de la ventana */
+    width: 100%; /* Esto hace que ocupen todo el ancho de la ventana */
+}
+
+html{
+    cursor: url('cursor/pincel-cursor.png'), auto; /*cursor como pincel*/
+}
+
+/* Asegúrate de que el contenedor padre (body en este caso) sea un contenedor flex */
+body {
+    font-family: 'Alex Brush',  'Playfair Display', Georgia, 'Times New Roman', Times, serif; 
+    font-size: xx-large;
+    text-align: center;
+    
+}
+
+/*nav*/
+header nav {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+header nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 2px solid white;
+    height: 20px;
+}
+
+header nav ul li a {
+    color: rgb(255, 159, 64);
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/*imagen con lienzo interactivo*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#imagen-con-enlaces {
+    position: relative;
+    display: block;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 100vh; /* Ocupa toda la altura disponible */
+    object-fit: cover; /* Esto asegura que la imagen cubra completamente el div sin deformarse */
+    overflow: hidden;
+}
+
+#imagen-con-enlaces img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto asegura que la imagen cubra completamente el div sin deformarse */
+}
+
+#lienzo {
+    position: absolute;
+    top: 28%;
+    left: 39%;
+    width: 23%;
+    height: 20%;
+    animation: fadeIn 8s;
+}
+
+#lienzo h1 {
+    color: #830707;
+    margin-bottom: 20px;
+}
+
+#lienzo h2 {
+    color: #830707;
+    margin-bottom: 20px;
+}
+
+#lienzo-enlaces {
+    display: flex; /* Usa Flexbox para la disposición */
+    justify-content: space-around; /* Distribuye el espacio alrededor de los enlaces */
+}
+
+#lienzo #lienzo-enlaces img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(10%);
+    vertical-align: middle; /* Alinea verticalmente la imagen con el texto */
+}
+
+#lienzo-enlaces a {
+    text-align: center; /* Alinea el texto y la imagen en el centro */
+    flex: 1; /* Cada enlace ocupará un espacio igual */
+    margin: 0 10px; /* Ajusta el margen según sea necesario */
+    color: #0f3754; /* Un color azul para los enlaces */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    transition: color 0.3s; /* Transición suave para los efectos de hover y focus */
+}
+
+#lienzo-enlaces a:hover, #lienzo-enlaces a:focus {
+    color: #801026; /* Cambia el color al pasar el ratón o enfocar */
+    text-decoration: underline; /* Añade subrayado al pasar el ratón o enfocar */
+}
+
+#lienzo #lienzo-enlaces #admin{
+    width: 50%;
+}
+
+

@@ -1,0 +1,343 @@
+/*Efecto click*/
+#click-effect-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.click-circle {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background:radial-gradient(circle,rgb(234, 219, 194), rgb(255, 160, 64), rgb(255, 160, 64));/* Color y transparencia del círculo */
+    transition: transform 0.5s ease-out;
+    z-index: 9999;
+}
+
+/* Estilos generales */
+body {
+    margin: 15%;
+    margin-top: 0;
+    margin-bottom: 0;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.9), -5px -5px 20px 5px rgba(0, 0, 0, 0.9);
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    background:radial-gradient(circle,rgb(248, 202, 160), rgb(255, 160, 64), rgb(255, 160, 64), rgb(149, 76, 4) );/* Color y transparencia del círculo */
+    color: rgb(19, 20, 20);
+    cursor: url('cursor/pincel-cursor.png'), auto; 
+}
+
+/* Cabecera */
+header {
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+header hr{
+    margin: 0;
+    color: rgb(240, 232, 215);
+}
+
+#imagen-cabecera{
+    border: none;
+}
+
+#imagen-cabecera img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Mapa de navegación */
+#menu{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: black;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(240, 232, 215);
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(240, 232, 215);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+nav ul li {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 2px solid white;
+    height: 20px;
+}
+
+#menu nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#menu nav ul li a {
+    color: rgb(255, 159, 64);
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Main */
+h2{
+    color: rgb(34, 34, 34);
+}
+
+main{
+    text-align: center;
+    background-color: rgb(241, 240, 236);
+}
+
+main section {
+    padding: 60px;
+}
+
+main > section:nth-of-type(odd) {
+    background: linear-gradient(to bottom, rgb(234, 219, 194), rgb(241, 240, 236),rgb(234, 219, 194));
+}
+
+main > section:nth-of-type(even) {
+    background: linear-gradient(to bottom,rgb(241, 240, 236), rgb(234, 219, 194), rgb(241, 240, 236));
+}
+
+/*quienes somos*/
+#quienes-somos{
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+#quienes-somos p{
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+/*Imagen de transicción*/
+.imagen-de-transiccion{
+    padding: 0;
+}
+
+.imagen-de-transiccion img{
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    opacity: 0.9;
+}
+
+/*cursos*/
+#diferentes-cursos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#diferentes-cursos div img{
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+#diferentes-cursos div {
+    padding-top: 0;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: box-shadow 1.3s ease;
+}
+
+#diferentes-cursos div:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1); /* Añade una sombra más prominente */
+}
+
+#diferentes-cursos div ol{
+    text-align: justify;
+}
+
+/*Centro*/
+.detalles-centro{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.detalles-centro:hover{
+    transform: scale(1.1); 
+
+}
+
+.detalles-centro div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.detalles-centro h3{
+    margin: 0;
+}
+
+.detalles-centro p{
+    text-align: justify;
+    padding: 20px;
+    margin: 0;
+}
+
+.detalles-centro img{
+    width: 90%;
+    height: auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.detalles-centro img:hover {
+    transform: scale(1.1); 
+}
+
+/*Profesores*/
+#detalles-profes{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px; 
+}
+
+#detalles-profes div{
+    padding: 20px;
+    transition: transform 1.3s ease; /* Transición suave para el efecto */
+    filter: grayscale(30%);
+}
+
+#detalles-profes div:hover {
+    transform: translate(0px, -30px);
+    filter: grayscale(0%);
+    filter: brightness(120%);
+
+}
+
+#detalles-profes img{
+    width: 100%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+#detalles-profes p{
+    text-align: center;
+}
+
+/*informacion de acceso*/
+#acceso{
+    text-align: justify;
+    padding-left: 110px;
+    padding-right: 110px;
+}
+
+#acceso h2{
+    text-align: center;
+    
+}
+
+#acceso ol, #acceso ul{
+    text-align: justify;
+}
+
+#orden-acceso{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#orden-acceso > div:last-child {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+#orden-acceso img{
+    width: 90%; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+a{
+    color: rgb(245, 142, 40);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Añade subrayado al pasar el ratón o enfocar */
+}
+
+/*Pie de pagina*/
+footer {
+    text-align: center;
+    background-color: black; 
+    color: rgb(240, 232, 215);
+    padding-top: 20px; 
+    padding-bottom: 5px;
+}
+
+.enlaces-footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+footer a {
+    color: rgb(240, 232, 215); /* Color de los enlaces */
+    text-decoration: none; /* Opcional: elimina el subrayado de los enlaces */
+}
+
+footer img {
+    width: auto; /* Ajusta el ancho según tus necesidades */
+    height: 50px; /* Ajusta la altura según tus necesidades */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+    opacity: 0.9;
+}

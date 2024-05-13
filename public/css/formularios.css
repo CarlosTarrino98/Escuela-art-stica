@@ -1,0 +1,180 @@
+/*Efecto click*/
+#click-effect-container {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.click-circle {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background:radial-gradient(circle,rgb(234, 219, 194), rgb(255, 160, 64), rgb(255, 160, 64));/* Color y transparencia del círculo */
+    transition: transform 0.5s ease-out;
+    z-index: 9999;
+}
+
+/* Estilos generales */
+@keyframes cambioColor  {
+    0% { background-color: rgb(255, 159, 64); }
+    25% { background-color: rgb(255, 179, 107); } /* Un tono ligeramente más claro */
+    50% { background-color: rgb(255, 139, 38); } /* Un tono ligeramente más oscuro */
+    75% { background-color: rgb(255, 199, 128); } /* Un tono más suave */
+    100% { background-color: rgb(255, 159, 64); } /* Vuelve al color original */
+}
+
+body {
+    animation: cambioColor 10s infinite;
+    cursor: url('cursor/pincel-cursor.png'), auto; 
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    margin: 0;
+    text-align: center;
+}
+
+
+/*cabecera*/
+header {
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(240, 232, 215);
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+header nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 2px solid white;
+    height: 20px;
+}
+
+header nav ul li a {
+    color: rgb(255, 159, 64);
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/*Contenido*/
+/*formularios*/
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea los elementos hijos al centro */
+    width: 50%;
+    margin: 0 auto;
+    background-color: #ffecd2;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin: 20px;
+}
+
+input[type="text"],
+input[type="file"],
+input[type="submit"],
+input[type="email"],
+input[type="password"]{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 98%;
+}
+
+input[type="submit"] {
+    font-size: x-large;
+    width: 98%;
+    background-color: rgb(246, 173, 101);
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(255, 159, 64);
+}
+
+textarea{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+select{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+form  img {
+    width: 30%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;}
+
+/*Pie de pagina*/
+footer {
+    text-align: center;
+    background-color: black; 
+    color: rgb(240, 232, 215);
+    padding-top: 20px; 
+    padding-bottom: 5px;
+}
+
+.enlaces-footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+footer a {
+    color: rgb(240, 232, 215); /* Color de los enlaces */
+    text-decoration: none; /* Opcional: elimina el subrayado de los enlaces */
+}
+
+footer img {
+    width: auto; /* Ajusta el ancho según tus necesidades */
+    height: 50px; /* Ajusta la altura según tus necesidades */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+    opacity: 0.9;
+}

@@ -1,0 +1,352 @@
+/*Efecto click*/
+#click-effect-container {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.click-circle {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background:radial-gradient(circle,rgb(234, 219, 194), rgb(255, 160, 64), rgb(255, 160, 64));/* Color y transparencia del círculo */
+    transition: transform 0.5s ease-out;
+    z-index: 9999;
+}
+
+/* Estilos generales */
+@keyframes cambioColor  {
+    0% { background-color: rgb(255, 159, 64); }
+    25% { background-color: rgb(255, 179, 107); } /* Un tono ligeramente más claro */
+    50% { background-color: rgb(255, 139, 38); } /* Un tono ligeramente más oscuro */
+    75% { background-color: rgb(255, 199, 128); } /* Un tono más suave */
+    100% { background-color: rgb(255, 159, 64); } /* Vuelve al color original */
+}
+
+body {
+    animation: cambioColor 10s infinite;
+    cursor: url('cursor/pincel-cursor.png'), auto; 
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    margin: 0;
+    text-align: center;
+}
+
+/*cabecera*/
+header {
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(240, 232, 215);
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+header nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 2px solid white;
+    height: 20px;
+}
+
+header nav ul li a {
+    color: rgb(255, 159, 64);
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/*Acceso*/
+/*formularios*/
+#formularios{
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(240, 232, 215);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+form:hover{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    background: rgb(241, 215, 159);
+}
+
+form div {
+    margin-bottom: 10px;
+    margin-right: 20px;
+    align-items: center;
+    text-align: left;
+}
+
+#terminos{
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+#terminos label{
+    margin-right: 30px;
+}
+
+.botones{
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: .5em;
+    color: #666;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"],
+form input[type="tel"],
+form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+form button {
+    display: inline-block;
+    background: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+form button:hover {
+    background: rgb(255, 159, 64);
+}
+
+form button[type="reset"] {
+    margin-left: 10px;
+}
+
+#student-course-selection {
+    display: none; /* Inicialmente oculto */
+}
+
+/*Aula virtual*/
+main{
+    display: flex;
+}
+
+/*barra de navegacion del aula*/
+#navegacion-aula {
+    position: sticky;
+    top: 0; 
+    left: 0;
+    height: 100vh; 
+    width: 10%;
+    background-color: rgb(240, 232, 215); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1); /* Añade una sombra más prominente */
+    z-index: 1000; 
+}
+
+#navegacion-aula nav ul li a img {
+    width: 60px;
+    height: auto; 
+}
+
+#navegacion-aula nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+#navegacion-aula nav ul li {
+    margin-bottom: 10px; /* Espacio entre elementos */
+}
+
+#navegacion-aula nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black; /* Color del texto */
+    font-weight: bold;
+}
+
+#navegacion-aula nav ul li a:hover {
+    background-color: #ddd; /* Color de fondo al pasar el mouse */
+}
+
+/*contenido del aula*/
+#contenido-principal{
+    width: 90%;
+    padding-right: 5%; 
+    padding-left: 5%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1); /* Añade una sombra más prominente */
+}
+
+#contenido-principal section{
+    background-color: #ffecd2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#contenido-principal section:hover{
+    background-color: #fcdfb8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#foro a, #consulta-a-profesores a{
+    color:rgb(254, 145, 36);
+    text-decoration: none;
+}
+
+#foro a:hover, #consulta-a-profesores a:hover{
+    color:rgb(255, 128, 0);
+    text-decoration: underline;
+}
+
+/* Tablas */
+.tabla {
+    width: 100%;
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Combina los bordes de las celdas */
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid #515151; /* Agrega bordes a las celdas */
+    padding: 12px; /* Ajusta el espaciado interno de las celdas */
+    text-align: center; /* Alinea el texto al centro */
+    width: 25%; /* Establece un ancho igual para todas las columnas */
+}
+
+.tabla th,.tabla tfoot td {
+    background-color: rgb(255, 159, 64); /* Color de fondo para las celdas del encabezado */
+}
+
+.tabla td ol {
+    margin: 0; /* Elimina el margen predeterminado de la lista ordenada */
+    padding-left: 20px; /* Agrega un espacio a la izquierda para la lista de asignaturas */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/*Seccion de consultas*/
+#consulta-a-profesores div {
+    background-color: #ffecd2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#consulta-a-profesores div:hover {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#consulta-a-profesores form select,
+#consulta-a-profesores form input[type="text"],
+#consulta-a-profesores form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(255, 159, 64);
+    border-radius: 4px;
+}
+
+#consulta-a-profesores form button {
+    width: 20%;
+    background-color: rgb(255, 159, 64);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#consulta-a-profesores form button:hover {
+    background-color: rgb(246, 125, 4);
+}
+
+/*Pie de pagina*/
+footer {
+    text-align: center;
+    background-color: black; 
+    color: rgb(240, 232, 215);
+    padding-top: 20px; 
+    padding-bottom: 5px;
+}
+
+.enlaces-footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+footer a {
+    color: rgb(240, 232, 215); /* Color de los enlaces */
+    text-decoration: none; /* Opcional: elimina el subrayado de los enlaces */
+}
+
+footer img {
+    width: auto; /* Ajusta el ancho según tus necesidades */
+    height: 50px; /* Ajusta la altura según tus necesidades */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+    opacity: 0.9;
+}

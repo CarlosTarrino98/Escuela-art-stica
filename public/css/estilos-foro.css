@@ -1,0 +1,388 @@
+/*Efecto click*/
+#click-effect-container {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.click-circle {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background:radial-gradient(circle,rgb(234, 219, 194), rgb(255, 160, 64), rgb(255, 160, 64));/* Color y transparencia del círculo */
+    transition: transform 0.5s ease-out;
+    z-index: 9999;
+}
+
+/* Estilos generales */
+@keyframes cambioColor  {
+    0% { background-color: rgb(255, 159, 64); }
+    25% { background-color: rgb(255, 179, 107); } /* Un tono ligeramente más claro */
+    50% { background-color: rgb(255, 139, 38); } /* Un tono ligeramente más oscuro */
+    75% { background-color: rgb(255, 199, 128); } /* Un tono más suave */
+    100% { background-color: rgb(255, 159, 64); } /* Vuelve al color original */
+}
+
+body {
+    animation: cambioColor 10s infinite;
+    cursor: url('cursor/pincel-cursor.png'), auto; 
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    margin: 0;
+    text-align: center;
+}
+
+
+/*cabecera*/
+header {
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(240, 232, 215);
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+header nav ul li {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+}
+
+header nav ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 2px solid white;
+    height: 20px;
+}
+
+header nav ul li a {
+    color: rgb(255, 159, 64);
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/*contenido principal*/
+main {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(240, 232, 215);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2{
+    color: rgb(255, 159, 64);
+}
+
+section{
+    background-color: #ffecd2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section:hover{
+    background-color: #fcdfb8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*buscador*/
+#buscador-foro {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffecd2; /* Fondo de la sección */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+#buscador-foro form {
+    width: 100%; /* Ancho completo de la sección */
+}
+
+#buscador-foro input[type="text"] {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 10px;
+    margin-right: 10px; /* Espacio entre el input y el botón */
+    border: 1px solid rgb(255, 159, 64);
+    border-radius: 4px;
+}
+
+#buscador-foro button {
+    padding: 10px 15px;
+    background-color: rgb(255, 159, 64);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#buscador-foro button:hover {
+    background-color: rgb(246, 125, 4);
+}
+
+/*asignaturas y temas recientes*/
+#temas-recientes article,
+.asignatura {
+    background-color: #ffecd2;
+    border-left: 5px solid rgb(255, 159, 64);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/*crear tema*/
+#crear-tema form {
+    padding: 20px;
+    border-radius: 8px;
+    padding-right: 30px;
+}
+
+#crear-tema form select,
+#crear-tema form input[type="text"],
+#crear-tema form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(255, 159, 64);
+    border-radius: 4px;
+}
+
+#crear-tema form button {
+    width: 20%;
+    background-color: rgb(255, 159, 64);
+    color: rgb(240, 232, 215);
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#crear-tema form button:hover {
+    background-color: rgb(246, 125, 4);
+}
+
+/* Estilizar los elementos del formulario */
+form input[type="text"],
+form textarea,
+form select,
+form button {
+    width: 100%; /* Ajustar al ancho completo de la sección */
+    padding: 10px; /* Espaciado interno para comodidad */
+    margin-bottom: 10px; /* Espacio debajo de cada elemento */
+    border: 1px solid #ffb07c; /* Borde con color personalizado */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Ajustar el box-model para incluir padding y border */
+}
+
+form button {
+    background-color: rgb(255, 159, 64); /* Color de fondo */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar el cursor a pointer */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+form button:hover {
+    background-color: rgb(246, 125, 4); /* Cambiar color de fondo al pasar el ratón */
+}
+
+/* Estilo para cada div de tema-item */
+.tema-item {
+    background-color: #fff; /* Fondo blanco para destacar */
+    border-left: 4px solid rgb(255, 159, 64); /* Borde lateral para resaltar */
+    margin-bottom: 20px; /* Espacio entre temas */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transición suave para sombra y transformación */
+}
+
+.tema-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+    transform: translateY(-2px); /* Ligero movimiento hacia arriba al pasar el ratón */
+}
+
+/* Título del tema */
+.tema-item h3 {
+    color: rgb(255, 159, 64); /* Color del título */
+    margin-top: 0; /* Quitar margen superior */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+/* Contenido del tema */
+.tema-item p {
+    color: #333; /* Color del texto */
+    line-height: 1.6; /* Espaciado de línea para mejor lectura */
+}
+
+/* Estilizar enlaces para editar y eliminar */
+.tema-item a {
+    display: inline-block;
+    margin-right: 10px; /* Espacio entre enlaces */
+    color: rgb(255, 159, 64); /* Color del enlace */
+    text-decoration: none; /* Quitar subrayado */
+    padding: 5px 10px; /* Espaciado interno */
+    border: 1px solid rgb(255, 159, 64); /* Borde con color */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave del fondo */
+}
+
+.tema-item a:hover {
+    background-color: rgb(255, 159, 64); /* Cambiar color de fondo al pasar el ratón */
+    color: white; /* Cambiar color de texto al pasar el ratón */
+}
+
+
+/* Ajustes para la lista desplegable en la sección cursos */
+#curso-tema,
+#cursos-foro select {
+    width: 100%; /* Ajustar al ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espacio debajo del select */
+}
+
+/* Ajustar la sección del buscador */
+#buscador-foro {
+    margin-bottom: 20px; /* Espacio debajo de la sección */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar contenido */
+}
+
+/* Estilos para las respuestas del foro */
+.respuestas {
+    margin-top: 20px;
+    background-color: #fff0e6;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.respuestas h4 {
+    margin-top: 0;
+    color: rgb(255, 159, 64);
+}
+
+.respuesta {
+    background-color: #ffe6cc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.respuesta .autor {
+    font-size: smaller;
+    text-align: right;
+    color: #888;
+}
+
+.respuestas form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(255, 159, 64);
+    border-radius: 4px;
+    resize: vertical; /* Permite al usuario ajustar el tamaño verticalmente */
+}
+
+.respuestas form button {
+    width: 100%;
+    background-color: rgb(255, 159, 64);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.respuestas form button:hover {
+    background-color: rgb(246, 125, 4);
+}
+
+/*enlace para mostrar todos los cursos*/
+#cursos-foro {
+    padding: 20px;
+    background-color: #ffecd2;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cursos-foro .mostrar-todos {
+    display: block; /* Ocupa todo el ancho */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    margin-bottom: 10px; /* Espacio debajo del enlace */
+    text-align: center; /* Centra el texto dentro del enlace */
+    background-color: rgb(255, 159, 64);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#cursos-foro .mostrar-todos:hover {
+    background-color: rgb(246, 125, 4);
+}
+
+/*Pie de pagina*/
+footer {
+    text-align: center;
+    background-color: black; 
+    color: rgb(240, 232, 215);
+    padding-top: 20px; 
+    padding-bottom: 5px;
+}
+
+.enlaces-footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+footer a {
+    color: rgb(240, 232, 215); /* Color de los enlaces */
+    text-decoration: none; /* Opcional: elimina el subrayado de los enlaces */
+}
+
+footer img {
+    width: auto; /* Ajusta el ancho según tus necesidades */
+    height: 50px; /* Ajusta la altura según tus necesidades */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+    opacity: 0.9;
+}
